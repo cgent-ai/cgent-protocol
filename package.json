@@ -1,0 +1,64 @@
+{
+  "name": "@cgentai/cgent-protocol",
+  "version": "1.0.0",
+  "description": "Cgent.AI Commerce Protocol",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./types/order": {
+      "types": "./dist/types/order.d.ts",
+      "import": "./dist/types/order.mjs",
+      "require": "./dist/types/order.js"
+    },
+    "./types/product": {
+      "types": "./dist/types/product.d.ts",
+      "import": "./dist/types/product.mjs",
+      "require": "./dist/types/product.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "a2a-protocol",
+    "commerce-protocol",
+    "cgent-ai",
+    "typescript",
+    "e-commerce",
+    "protocol"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cgent-ai/cgent-protocol.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cgent-ai/cgent-protocol/issues"
+  },
+  "homepage": "https://github.com/cgent-ai/cgent-protocol#readme",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.6.3"
+  }
+}
+
