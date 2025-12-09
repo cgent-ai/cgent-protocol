@@ -55,6 +55,8 @@ export type ProductSku = {
   originalPrice: number;
   /** SKU image URL */
   imageUrl: string;
+  /** SKU stock */
+  stock: string;
   /** SKU specific attributes as JSON string */
   attributeJson: string;
 };

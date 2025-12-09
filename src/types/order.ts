@@ -103,6 +103,10 @@ export type Order = {
   remark: string | null;
   /** Order status */
   status: OrderStatus;
+  /** Payment intent ID (for Stripe payments) */
+  paymentIntentId: string | null;
+  /** Payment type: "wallet" or "stripe" */
+  paymentType: "wallet" | "stripe";
   /** Order creation timestamp */
   createdAt: Date;
   /** Order last update timestamp */
