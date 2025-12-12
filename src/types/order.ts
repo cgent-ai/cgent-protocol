@@ -113,6 +113,6 @@ export type Order = {
   updatedAt: Date;
 };
 
-export type OrderStatus = "None" | "BuyerPaid0" | "BuyerPaid" | "SellerLocked" | "SellerRefunded"
+export type OrderStatus = "None" | "BuyerPaid" | "SellerLocked" | "SellerRefunded"
   | "SellerReleased" | "BuyerWithdrawn" | "ArbitrationPending"
   | "ArbitrationBuyer" | "ArbitrationSeller";
