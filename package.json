@@ -1,6 +1,6 @@
 {
   "name": "@cgentai/cgent-protocol",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Cgent.AI Commerce Protocol",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -20,6 +20,11 @@
       "types": "./dist/types/product.d.ts",
       "import": "./dist/types/product.mjs",
       "require": "./dist/types/product.js"
+    },
+    "./specs/t-shirt-spec": {
+      "types": "./dist/specs/t-shirt-spec.d.ts",
+      "import": "./dist/specs/t-shirt-spec.mjs",
+      "require": "./dist/specs/t-shirt-spec.js"
     },
     "./package.json": "./package.json"
   },

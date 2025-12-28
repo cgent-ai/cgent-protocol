@@ -21,3 +21,42 @@ export type {
   ProductSku,
   ParsedProduct,
 } from './types/product';
+
+// Export all T-shirt spec types
+export type {
+  TshirtSpec,
+  SpecMeta,
+  TshirtIntent,
+  TshirtDecisions,
+  TshirtOrder,
+  TshirtVariant,
+  TshirtProduct,
+  TshirtCustomization,
+  TshirtCompliance,
+  TshirtQuality,
+  TshirtLogistics,
+  TshirtCommercial,
+  ColorSpec,
+  FabricSpec,
+  SizingSpec,
+  DecorationItem,
+  LabelingSpec,
+  PackagingSpec,
+  AttachmentRef,
+  // Utility types
+  ISODateTimeString,
+  ISODateString,
+  CurrencyCode,
+  CountryCode,
+  YesNoUnknown,
+  // Enums
+  GarmentCategory,
+  FitType,
+  NeckType,
+  SleeveType,
+  SizeSystem,
+  DecorationMethod,
+  DecorationPlacement,
+  Incoterm,
+  ShippingMode,
+} from './specs/t-shirt-spec';

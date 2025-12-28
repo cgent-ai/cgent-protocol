@@ -5,6 +5,7 @@ export default defineConfig({
     'src/index.ts',
     'src/types/order.ts',
     'src/types/product.ts',
+    'src/specs/t-shirt-spec.ts',
   ],
   format: ['cjs', 'esm'],
   dts: true,
