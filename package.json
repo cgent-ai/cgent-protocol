@@ -1,6 +1,6 @@
 {
   "name": "@cgentai/cgent-protocol",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "Cgent.AI Commerce Protocol",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -10,6 +10,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/types/index.mjs",
+      "require": "./dist/types/index.js"
     },
     "./types/order": {
       "types": "./dist/types/order.d.ts",
@@ -21,10 +26,20 @@
       "import": "./dist/types/product.mjs",
       "require": "./dist/types/product.js"
     },
+    "./specs": {
+      "types": "./dist/specs/index.d.ts",
+      "import": "./dist/specs/index.mjs",
+      "require": "./dist/specs/index.js"
+    },
     "./specs/t-shirt-spec": {
       "types": "./dist/specs/t-shirt-spec.d.ts",
       "import": "./dist/specs/t-shirt-spec.mjs",
       "require": "./dist/specs/t-shirt-spec.js"
+    },
+    "./specs/t-shirt-artifacts": {
+      "types": "./dist/specs/t-shirt-artifacts.d.ts",
+      "import": "./dist/specs/t-shirt-artifacts.mjs",
+      "require": "./dist/specs/t-shirt-artifacts.js"
     },
     "./package.json": "./package.json"
   },

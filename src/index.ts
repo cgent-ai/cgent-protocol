@@ -2,61 +2,19 @@
  * Cgent.AI A2A Protocol
  * 
  * Type definitions for the Cgent.AI A2A e-commerce Protocol
+ * @packageDocumentation
  */
 
-// Export all order types
-export type {
-  ChainInfo,
-  TokenInfo,
-  TransactionInfo,
-  AddressInfo,
-  Order,
-  OrderStatus,
-} from './types/order';
+// ============================================================================
+// Re-export all types from submodules
+// ============================================================================
+export * from './types';
+export * from './specs';
 
-// Export all product types
-export type {
-  Product,
-  ProductAttributes,
-  ProductSku,
-  ParsedProduct,
-} from './types/product';
-
-// Export all T-shirt spec types
-export type {
-  TshirtSpec,
-  SpecMeta,
-  TshirtIntent,
-  TshirtDecisions,
-  TshirtOrder,
-  TshirtVariant,
-  TshirtProduct,
-  TshirtCustomization,
-  TshirtCompliance,
-  TshirtQuality,
-  TshirtLogistics,
-  TshirtCommercial,
-  ColorSpec,
-  FabricSpec,
-  SizingSpec,
-  DecorationItem,
-  LabelingSpec,
-  PackagingSpec,
-  AttachmentRef,
-  // Utility types
-  ISODateTimeString,
-  ISODateString,
-  CurrencyCode,
-  CountryCode,
-  YesNoUnknown,
-  // Enums
-  GarmentCategory,
-  FitType,
-  NeckType,
-  SleeveType,
-  SizeSystem,
-  DecorationMethod,
-  DecorationPlacement,
-  Incoterm,
-  ShippingMode,
-} from './specs/t-shirt-spec';
+// ============================================================================
+// Namespace exports for better organization
+// ============================================================================
+export * as OrderTypes from './types/order';
+export * as ProductTypes from './types/product';
+export * as TshirtSpecTypes from './specs/t-shirt-spec';
+export * as TshirtArtifactsTypes from './specs/t-shirt-artifacts';
