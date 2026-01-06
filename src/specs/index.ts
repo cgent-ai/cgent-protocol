@@ -3,7 +3,8 @@
  * All specification and artifact type definitions
  */
 
-export * from './t-shirt-spec';
-export * from './t-shirt-artifacts';
-export * from './spec';
+// Common: shared types across all verticals
+export * from "./common";
 
+// Verticals: category-specific specs
+export * from "./verticals/apparel/tshirt";

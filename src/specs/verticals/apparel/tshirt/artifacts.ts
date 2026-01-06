@@ -1,11 +1,9 @@
-import { TshirtSpec, ISODateTimeString } from "./t-shirt-spec";
+import { TshirtSpec } from "./spec";
+import { ISODateTimeString } from "../../../common";
 
 export type FeasibilityStatus = "ok" | "conditional_ok" | "hard_reject";
 export type FieldPath = string;
 export type ConfidenceLevel = "low" | "medium" | "high";
-
-
-
 
 export interface TshirtArtifacts {
   feasibility?: SellerFeasibilityReport;
@@ -124,3 +122,4 @@ export interface RiskFlag {
   message: string;
   fieldPath?: FieldPath;
 }
+

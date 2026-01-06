@@ -7,8 +7,11 @@ export default defineConfig({
     'src/types/order.ts',
     'src/types/product.ts',
     'src/specs/index.ts',
-    'src/specs/t-shirt-spec.ts',
-    'src/specs/t-shirt-artifacts.ts',
+    'src/specs/common/index.ts',
+    'src/specs/verticals/apparel/tshirt/index.ts',
+    'src/specs/verticals/apparel/tshirt/spec.ts',
+    'src/specs/verticals/apparel/tshirt/artifacts.ts',
+    'src/specs/verticals/apparel/tshirt/enums.ts',
   ],
   format: ['cjs', 'esm'],
   dts: true,
@@ -20,4 +23,3 @@ export default defineConfig({
   target: 'node20',
   outDir: 'dist',
 });
-

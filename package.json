@@ -1,6 +1,6 @@
 {
   "name": "@cgentai/cgent-protocol",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "Cgent.AI Commerce Protocol",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -31,15 +31,30 @@
       "import": "./dist/specs/index.mjs",
       "require": "./dist/specs/index.js"
     },
-    "./specs/t-shirt-spec": {
-      "types": "./dist/specs/t-shirt-spec.d.ts",
-      "import": "./dist/specs/t-shirt-spec.mjs",
-      "require": "./dist/specs/t-shirt-spec.js"
+    "./specs/common": {
+      "types": "./dist/specs/common/index.d.ts",
+      "import": "./dist/specs/common/index.mjs",
+      "require": "./dist/specs/common/index.js"
     },
-    "./specs/t-shirt-artifacts": {
-      "types": "./dist/specs/t-shirt-artifacts.d.ts",
-      "import": "./dist/specs/t-shirt-artifacts.mjs",
-      "require": "./dist/specs/t-shirt-artifacts.js"
+    "./specs/verticals/apparel/tshirt": {
+      "types": "./dist/specs/verticals/apparel/tshirt/index.d.ts",
+      "import": "./dist/specs/verticals/apparel/tshirt/index.mjs",
+      "require": "./dist/specs/verticals/apparel/tshirt/index.js"
+    },
+    "./specs/verticals/apparel/tshirt/spec": {
+      "types": "./dist/specs/verticals/apparel/tshirt/spec.d.ts",
+      "import": "./dist/specs/verticals/apparel/tshirt/spec.mjs",
+      "require": "./dist/specs/verticals/apparel/tshirt/spec.js"
+    },
+    "./specs/verticals/apparel/tshirt/artifacts": {
+      "types": "./dist/specs/verticals/apparel/tshirt/artifacts.d.ts",
+      "import": "./dist/specs/verticals/apparel/tshirt/artifacts.mjs",
+      "require": "./dist/specs/verticals/apparel/tshirt/artifacts.js"
+    },
+    "./specs/verticals/apparel/tshirt/enums": {
+      "types": "./dist/specs/verticals/apparel/tshirt/enums.d.ts",
+      "import": "./dist/specs/verticals/apparel/tshirt/enums.mjs",
+      "require": "./dist/specs/verticals/apparel/tshirt/enums.js"
     },
     "./package.json": "./package.json"
   },

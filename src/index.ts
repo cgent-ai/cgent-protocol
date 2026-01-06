@@ -16,5 +16,14 @@ export * from './specs';
 // ============================================================================
 export * as OrderTypes from './types/order';
 export * as ProductTypes from './types/product';
-export * as TshirtSpecTypes from './specs/t-shirt-spec';
-export * as TshirtArtifactsTypes from './specs/t-shirt-artifacts';
+
+// Tshirt vertical namespaces
+export * as TshirtSpecTypes from './specs/verticals/apparel/tshirt/spec';
+export * as TshirtArtifactsTypes from './specs/verticals/apparel/tshirt/artifacts';
+export * as TshirtEnums from './specs/verticals/apparel/tshirt/enums';
+
+// Common specs namespaces
+export * as CommonEnums from './specs/common/enums';
+export * as CommonTrade from './specs/common/trade';
+export * as CommonPrimitives from './specs/common/primitives';
+export * as CommonAttachments from './specs/common/attachments';

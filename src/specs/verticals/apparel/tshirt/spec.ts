@@ -3,12 +3,61 @@
  * - 只表达「买家需求/RFQ草案」以及「后续与卖家agent协商所需的业务信息」
  * - 不承载对话进度、置信度、下一问、校验错误等交互态（这些应在 SessionMemory / GraphState 里）
  */
+
+import {
+  ISODateTimeString,
+  ISODateString,
+  Currency,
+  Country,
+  YesNoUnknown,
+  Incoterm,
+  ShippingMode,
+  AttachmentRef,
+} from "../../../common";
+
+import {
+  GarmentCategory,
+  FitType,
+  NeckType,
+  SleeveType,
+  FabricDirection,
+  KnitType,
+  FabricFinish,
+  SizeSystem,
+  SizeUnit,
+  DecorationMethod,
+  DecorationPlacement,
+  SpecialEffect,
+  LabelType,
+  BarcodeStandard,
+  BarcodePlacement,
+  PackagingType,
+  PackagingExtraItem,
+  FoldingMethod,
+  UseCase,
+  TargetMarket,
+  Gender,
+  StylePreference,
+  BrandPositioning,
+  CustomizationDepth,
+  DesignFileType,
+  QuantityUnit,
+  QualityExpectation,
+  SampleType,
+  SampleRequirement,
+  PaymentModel,
+  PaymentMethod,
+  MOQTolerance,
+  TimelineStrictness,
+  SpecStatus,
+} from "./enums";
+
 export interface TshirtSpec {
   meta: SpecMeta;
   intent?: TshirtIntent;
 
   /**
-   * 面向流程的“决策开关”（业务事实，而非对话状态）：
+   * 面向流程的"决策开关"（业务事实，而非对话状态）：
    * 用来区分：
    * - unknown：尚未明确/尚未决策
    * - no：明确不需要（Graph 应停止追问该块）
@@ -59,16 +108,9 @@ export interface TshirtSpec {
   notes?: string;
 }
 
-export type ISODateTimeString = string; // e.g. "2025-12-25T12:34:56Z"
-export type ISODateString = string; // e.g. "2025-12-25"
-export type CurrencyCode = string; // e.g. "CNY" | "USD"
-export type CountryCode = string; // e.g. ISO 3166-1 alpha-2 "CN" | "US"
-
-export type YesNoUnknown = "yes" | "no" | "unknown";
-
 export interface TshirtDecisions {
   /**
-   * 是否存在任何“定制块”（印花/刺绣/标签/包装任一）
+   * 是否存在任何"定制块"（印花/刺绣/标签/包装任一）
    */
   need_customization?: YesNoUnknown;
   /**
@@ -100,52 +142,22 @@ export interface TshirtDecisions {
 export interface SpecMeta {
   spec_id: string;
   category: "tshirt";
-  status: "draft" | "rfq_ready" | "negotiating" | "frozen";
+  status: SpecStatus;
   version: number;
   created_at: ISODateTimeString;
   last_updated_at: ISODateTimeString;
 }
 
 export interface TshirtIntent {
-  use_case?:
-    | "brand_merch"
-    | "promotion"
-    | "employee_uniform"
-    | "resale"
-    | "event"
-    | "other";
-
-  target_market?:
-    | "domestic"
-    | "north_america"
-    | "europe"
-    | "southeast_asia"
-    | "global"
-    | "unknown";
-
+  use_case?: UseCase;
+  target_market?: TargetMarket;
   target_audience?: {
-    gender?: "male" | "female" | "unisex" | "unknown";
+    gender?: Gender;
     age_range?: string; // e.g. "18-30"
   };
-
-  style_preference?:
-    | "minimal"
-    | "streetwear"
-    | "casual"
-    | "business"
-    | "unknown";
-
-  brand_positioning?:
-    | "low_end"
-    | "mid_range"
-    | "high_end"
-    | "undecided";
-
-  customization_depth?:
-    | "none"
-    | "light"
-    | "deep"
-    | "unknown";
+  style_preference?: StylePreference;
+  brand_positioning?: BrandPositioning;
+  customization_depth?: CustomizationDepth;
 }
 
 /**
@@ -156,7 +168,7 @@ export interface TshirtOrder {
   quantity?: {
     exact?: number;
     range?: { min?: number; max?: number };
-    unit?: "pcs" | "sets" | "unknown";
+    unit?: QuantityUnit;
   };
   variants?: TshirtVariant[];
 }
@@ -173,47 +185,32 @@ export interface ColorSpec {
   hex?: string;
 }
 
-export type GarmentCategory = "tshirt" | "polo" | "long_sleeve" | "hoodie" | "unknown";
-export type FitType = "slim" | "regular" | "oversized" | "boxy" | "unknown";
-export type NeckType = "crew" | "v_neck" | "polo" | "henley" | "unknown";
-export type SleeveType = "short" | "long" | "sleeveless" | "unknown";
-
 export interface TshirtProduct {
   category?: GarmentCategory;
   fit_type?: FitType;
   neck_type?: NeckType;
   sleeve_type?: SleeveType;
-
   fabric?: FabricSpec;
   sizing?: SizingSpec;
 }
 
 export interface FabricSpec {
-  direction?: "cotton" | "polyester" | "blend" | "unknown";
+  direction?: FabricDirection;
   composition?: {
     cotton_pct?: number;
     polyester_pct?: number;
     other?: Array<{ name: string; pct?: number }>;
   };
-  knit_type?: "single_jersey" | "pique" | "rib" | "interlock" | "unknown";
+  knit_type?: KnitType;
   weight_gsm?: number | { min?: number; max?: number };
-  finish?: Array<
-    "pre_shrunk"
-    | "enzyme_wash"
-    | "silicone_wash"
-    | "anti_pilling"
-    | "moisture_wicking"
-    | "unknown"
-  >;
+  finish?: Array<FabricFinish>;
 }
-
-export type SizeSystem = "asia" | "eu" | "us" | "uk" | "custom" | "unknown";
 
 export interface SizingSpec {
   size_system?: SizeSystem;
   size_list?: string[]; // e.g. ["XS","S","M","L","XL"] or custom codes
   size_chart?: {
-    unit?: "cm" | "inch" | "unknown";
+    unit?: SizeUnit;
     /**
      * measurements_by_size["M"]["chest"] = 52
      */
@@ -221,29 +218,6 @@ export interface SizingSpec {
     tolerance?: { plus?: number; minus?: number };
   };
 }
-
-export type DecorationMethod =
-  | "screen_print"
-  | "dtg"
-  | "heat_transfer"
-  | "sublimation"
-  | "embroidery"
-  | "patch"
-  | "woven_label"
-  | "printed_label"
-  | "unknown";
-
-export type DecorationPlacement =
-  | "left_chest"
-  | "center_chest"
-  | "full_front"
-  | "upper_back"
-  | "full_back"
-  | "sleeve_left"
-  | "sleeve_right"
-  | "hem"
-  | "neck_label"
-  | "unknown";
 
 export interface TshirtCustomization {
   /**
@@ -256,7 +230,7 @@ export interface TshirtCustomization {
   design_assets?: {
     provided_by_user?: boolean;
     needs_design_help?: boolean;
-    preferred_file_types?: Array<"ai" | "psd" | "pdf" | "svg" | "png" | "jpg" | "unknown">;
+    preferred_file_types?: Array<DesignFileType>;
   };
 }
 
@@ -267,22 +241,14 @@ export interface DecorationItem {
   size_mm?: { width?: number; height?: number };
   color_count?: number;
   colors?: ColorSpec[];
-  special_effect?: Array<
-    "puff"
-    | "glow"
-    | "metallic"
-    | "reflective"
-    | "foil"
-    | "high_density"
-    | "unknown"
-  >;
+  special_effect?: Array<SpecialEffect>;
   notes?: string;
 }
 
 export interface LabelingSpec {
   main_label?: {
     required?: boolean | "unknown";
-    type?: "woven" | "printed" | "heat_transfer" | "unknown";
+    type?: LabelType;
     artwork_ref?: string;
     text?: string;
   };
@@ -299,18 +265,18 @@ export interface LabelingSpec {
   };
   barcode_sticker?: {
     required?: boolean | "unknown";
-    standard?: "EAN13" | "UPC" | "CODE128" | "QR" | "unknown";
-    placement?: "polybag" | "hangtag" | "garment" | "unknown";
+    standard?: BarcodeStandard;
+    placement?: BarcodePlacement;
   };
 }
 
 export interface PackagingSpec {
   individual_packaging?: {
-    type?: "polybag" | "biodegradable_bag" | "paper_bag" | "none" | "unknown";
+    type?: PackagingType;
     suffocation_warning?: boolean | "unknown";
-    extra_items?: Array<"silica_gel" | "hanger" | "size_sticker" | "unknown">;
+    extra_items?: Array<PackagingExtraItem>;
   };
-  folding?: "factory_fold" | "flat" | "unknown";
+  folding?: FoldingMethod;
   carton?: {
     qty_per_carton?: number;
     carton_marking?: string;
@@ -327,17 +293,14 @@ export interface TshirtCompliance {
 export interface TshirtQuality {
   must_have?: string[];
   must_not_have?: string[];
-  expectation?: "sample_required" | "mass_only" | "flexible" | "unknown";
+  expectation?: QualityExpectation;
 }
-
-export type Incoterm = "EXW" | "FOB" | "CIF" | "DDP" | "FCA" | "DAP" | "unknown";
-export type ShippingMode = "sea" | "air" | "express" | "rail" | "truck" | "unknown";
 
 export interface TshirtLogistics {
   incoterm?: Incoterm;
   shipping_mode?: ShippingMode;
   destination?: {
-    country?: CountryCode;
+    country?: Country;
     state_or_province?: string;
     city?: string;
     postal_code?: string;
@@ -347,40 +310,35 @@ export interface TshirtLogistics {
   timeline?: {
     need_by_date?: ISODateString;
     ship_by_date?: ISODateString;
-    strictness?: "hard" | "soft" | "unknown";
+    strictness?: TimelineStrictness;
     lead_time_days?: number;
   };
 }
 
 export interface TshirtCommercial {
   /**
-   * 价格目标（不等于“硬约束”）：用于卖家agent初次给草案报价。
+   * 价格目标（不等于"硬约束"）：用于卖家agent初次给草案报价。
    */
-  target_unit_price?: { amount?: number; currency?: CurrencyCode };
-  max_unit_price?: { amount?: number; currency?: CurrencyCode };
-  total_budget?: { amount?: number; currency?: CurrencyCode };
+  target_unit_price?: { amount?: number; currency?: Currency };
+  max_unit_price?: { amount?: number; currency?: Currency };
+  total_budget?: { amount?: number; currency?: Currency };
 
-  moq_tolerance?: "strict" | "negotiable" | "unknown";
+  moq_tolerance?: MOQTolerance;
 
   sample?: {
-    requirement?: "required" | "optional" | "not_needed" | "unknown";
-    type?: "pp_sample" | "pre_production" | "size_set" | "photo_sample" | "unknown";
+    requirement?: SampleRequirement;
+    type?: SampleType;
     quantity?: number;
-    budget?: { amount: number; currency: CurrencyCode };
+    budget?: { amount: number; currency: Currency };
     lead_time_days?: number;
     notes?: string;
   };
 
   payment?: {
-    model?: "deposit" | "full_payment" | "milestone" | "unknown";
+    model?: PaymentModel;
     deposit_pct?: number;
-    methods?: Array<"T/T" | "L/C" | "PayPal" | "AlibabaTradeAssurance" | "unknown">;
+    methods?: Array<PaymentMethod>;
     notes?: string;
   };
 }
 
-export interface AttachmentRef {
-  name?: string;
-  uri: string;
-  kind?: "artwork" | "tech_pack" | "reference_image" | "size_chart" | "label_design" | "other";
-}
