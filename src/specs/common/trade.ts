@@ -19,6 +19,11 @@ export const Incoterm = {
 export type Incoterm = (typeof Incoterm)[keyof typeof Incoterm];
 
 /**
+ * Incoterm values array for Zod enum schemas
+ */
+export const IncotermValues = Object.values(Incoterm) as [string, ...string[]];
+
+/**
  * Shipping mode
  */
 export const ShippingMode = {
@@ -31,3 +36,8 @@ export const ShippingMode = {
 } as const;
 
 export type ShippingMode = (typeof ShippingMode)[keyof typeof ShippingMode];
+
+/**
+ * ShippingMode values array for Zod enum schemas
+ */
+export const ShippingModeValues = Object.values(ShippingMode) as [string, ...string[]];

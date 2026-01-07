@@ -13,3 +13,8 @@ export const YesNoUnknown = {
 } as const;
 
 export type YesNoUnknown = (typeof YesNoUnknown)[keyof typeof YesNoUnknown];
+
+/**
+ * YesNoUnknown values array for Zod enum schemas
+ */
+export const YesNoUnknownValues = Object.values(YesNoUnknown) as [string, ...string[]];

@@ -12,6 +12,7 @@ export const AttachmentKind = {
   ReferenceImage: "reference_image",
   SizeChart: "size_chart",
   LabelDesign: "label_design",
+  Logo: "logo",
   Other: "other",
 } as const;
 

@@ -238,6 +238,7 @@ export interface DecorationItem {
   method?: DecorationMethod;
   placement?: DecorationPlacement;
   artwork_ref?: string; // points to AttachmentRef.uri or external id
+  artwork_url?: string; // direct URL to the artwork/logo image
   size_mm?: { width?: number; height?: number };
   color_count?: number;
   colors?: ColorSpec[];

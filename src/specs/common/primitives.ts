@@ -24,6 +24,11 @@ export const Currency = {
 export type Currency = (typeof Currency)[keyof typeof Currency];
 
 /**
+ * Currency values array for Zod enum schemas
+ */
+export const CurrencyValues = Object.values(Currency) as [string, ...string[]];
+
+/**
  * Supported country codes (ISO 3166-1 alpha-2)
  * Covers major markets for B2B procurement
  */
@@ -76,3 +81,8 @@ export const Country = {
 } as const;
 
 export type Country = (typeof Country)[keyof typeof Country];
+
+/**
+ * Country values array for Zod enum schemas
+ */
+export const CountryValues = Object.values(Country) as [string, ...string[]];

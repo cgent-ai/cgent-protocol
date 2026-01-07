@@ -1,6 +1,6 @@
 {
   "name": "@cgentai/cgent-protocol",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "Cgent.AI Commerce Protocol",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -36,6 +36,11 @@
       "import": "./dist/specs/common/index.mjs",
       "require": "./dist/specs/common/index.js"
     },
+    "./specs/common/zod-schemas": {
+      "types": "./dist/specs/common/zod-schemas.d.ts",
+      "import": "./dist/specs/common/zod-schemas.mjs",
+      "require": "./dist/specs/common/zod-schemas.js"
+    },
     "./specs/verticals/apparel/tshirt": {
       "types": "./dist/specs/verticals/apparel/tshirt/index.d.ts",
       "import": "./dist/specs/verticals/apparel/tshirt/index.mjs",
@@ -55,6 +60,11 @@
       "types": "./dist/specs/verticals/apparel/tshirt/enums.d.ts",
       "import": "./dist/specs/verticals/apparel/tshirt/enums.mjs",
       "require": "./dist/specs/verticals/apparel/tshirt/enums.js"
+    },
+    "./specs/verticals/apparel/tshirt/zod-schemas": {
+      "types": "./dist/specs/verticals/apparel/tshirt/zod-schemas.d.ts",
+      "import": "./dist/specs/verticals/apparel/tshirt/zod-schemas.mjs",
+      "require": "./dist/specs/verticals/apparel/tshirt/zod-schemas.js"
     },
     "./package.json": "./package.json"
   },
@@ -90,10 +100,19 @@
   "engines": {
     "node": ">=20.0.0"
   },
+  "peerDependencies": {
+    "zod": "^3.23.0"
+  },
+  "peerDependenciesMeta": {
+    "zod": {
+      "optional": true
+    }
+  },
   "devDependencies": {
     "@types/node": "^22.0.0",
     "tsup": "^8.0.1",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "zod": "^3.23.8"
   }
 }
 

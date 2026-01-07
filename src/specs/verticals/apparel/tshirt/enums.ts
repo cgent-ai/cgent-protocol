@@ -17,6 +17,11 @@ export const GarmentCategory = {
 export type GarmentCategory = (typeof GarmentCategory)[keyof typeof GarmentCategory];
 
 /**
+ * GarmentCategory values array for Zod enum schemas
+ */
+export const GarmentCategoryValues = Object.values(GarmentCategory) as [string, ...string[]];
+
+/**
  * Fit type
  */
 export const FitType = {
@@ -28,6 +33,11 @@ export const FitType = {
 } as const;
 
 export type FitType = (typeof FitType)[keyof typeof FitType];
+
+/**
+ * FitType values array for Zod enum schemas
+ */
+export const FitTypeValues = Object.values(FitType) as [string, ...string[]];
 
 /**
  * Neck type
@@ -43,6 +53,11 @@ export const NeckType = {
 export type NeckType = (typeof NeckType)[keyof typeof NeckType];
 
 /**
+ * NeckType values array for Zod enum schemas
+ */
+export const NeckTypeValues = Object.values(NeckType) as [string, ...string[]];
+
+/**
  * Sleeve type
  */
 export const SleeveType = {
@@ -53,6 +68,11 @@ export const SleeveType = {
 } as const;
 
 export type SleeveType = (typeof SleeveType)[keyof typeof SleeveType];
+
+/**
+ * SleeveType values array for Zod enum schemas
+ */
+export const SleeveTypeValues = Object.values(SleeveType) as [string, ...string[]];
 
 /**
  * Fabric direction/composition
@@ -67,6 +87,11 @@ export const FabricDirection = {
 export type FabricDirection = (typeof FabricDirection)[keyof typeof FabricDirection];
 
 /**
+ * FabricDirection values array for Zod enum schemas
+ */
+export const FabricDirectionValues = Object.values(FabricDirection) as [string, ...string[]];
+
+/**
  * Knit type
  */
 export const KnitType = {
@@ -78,6 +103,11 @@ export const KnitType = {
 } as const;
 
 export type KnitType = (typeof KnitType)[keyof typeof KnitType];
+
+/**
+ * KnitType values array for Zod enum schemas
+ */
+export const KnitTypeValues = Object.values(KnitType) as [string, ...string[]];
 
 /**
  * Fabric finish
@@ -94,6 +124,11 @@ export const FabricFinish = {
 export type FabricFinish = (typeof FabricFinish)[keyof typeof FabricFinish];
 
 /**
+ * FabricFinish values array for Zod enum schemas
+ */
+export const FabricFinishValues = Object.values(FabricFinish) as [string, ...string[]];
+
+/**
  * Size system
  */
 export const SizeSystem = {
@@ -108,6 +143,11 @@ export const SizeSystem = {
 export type SizeSystem = (typeof SizeSystem)[keyof typeof SizeSystem];
 
 /**
+ * SizeSystem values array for Zod enum schemas
+ */
+export const SizeSystemValues = Object.values(SizeSystem) as [string, ...string[]];
+
+/**
  * Size unit
  */
 export const SizeUnit = {
@@ -117,6 +157,11 @@ export const SizeUnit = {
 } as const;
 
 export type SizeUnit = (typeof SizeUnit)[keyof typeof SizeUnit];
+
+/**
+ * SizeUnit values array for Zod enum schemas
+ */
+export const SizeUnitValues = Object.values(SizeUnit) as [string, ...string[]];
 
 /**
  * Decoration method
@@ -134,6 +179,11 @@ export const DecorationMethod = {
 } as const;
 
 export type DecorationMethod = (typeof DecorationMethod)[keyof typeof DecorationMethod];
+
+/**
+ * DecorationMethod values array for Zod enum schemas
+ */
+export const DecorationMethodValues = Object.values(DecorationMethod) as [string, ...string[]];
 
 /**
  * Decoration placement
@@ -154,6 +204,11 @@ export const DecorationPlacement = {
 export type DecorationPlacement = (typeof DecorationPlacement)[keyof typeof DecorationPlacement];
 
 /**
+ * DecorationPlacement values array for Zod enum schemas
+ */
+export const DecorationPlacementValues = Object.values(DecorationPlacement) as [string, ...string[]];
+
+/**
  * Special effect for decoration
  */
 export const SpecialEffect = {
@@ -169,6 +224,11 @@ export const SpecialEffect = {
 export type SpecialEffect = (typeof SpecialEffect)[keyof typeof SpecialEffect];
 
 /**
+ * SpecialEffect values array for Zod enum schemas
+ */
+export const SpecialEffectValues = Object.values(SpecialEffect) as [string, ...string[]];
+
+/**
  * Label type
  */
 export const LabelType = {
@@ -179,6 +239,11 @@ export const LabelType = {
 } as const;
 
 export type LabelType = (typeof LabelType)[keyof typeof LabelType];
+
+/**
+ * LabelType values array for Zod enum schemas
+ */
+export const LabelTypeValues = Object.values(LabelType) as [string, ...string[]];
 
 /**
  * Barcode standard
@@ -194,6 +259,11 @@ export const BarcodeStandard = {
 export type BarcodeStandard = (typeof BarcodeStandard)[keyof typeof BarcodeStandard];
 
 /**
+ * BarcodeStandard values array for Zod enum schemas
+ */
+export const BarcodeStandardValues = Object.values(BarcodeStandard) as [string, ...string[]];
+
+/**
  * Barcode placement
  */
 export const BarcodePlacement = {
@@ -204,6 +274,11 @@ export const BarcodePlacement = {
 } as const;
 
 export type BarcodePlacement = (typeof BarcodePlacement)[keyof typeof BarcodePlacement];
+
+/**
+ * BarcodePlacement values array for Zod enum schemas
+ */
+export const BarcodePlacementValues = Object.values(BarcodePlacement) as [string, ...string[]];
 
 /**
  * Packaging type
@@ -219,6 +294,11 @@ export const PackagingType = {
 export type PackagingType = (typeof PackagingType)[keyof typeof PackagingType];
 
 /**
+ * PackagingType values array for Zod enum schemas
+ */
+export const PackagingTypeValues = Object.values(PackagingType) as [string, ...string[]];
+
+/**
  * Packaging extra items
  */
 export const PackagingExtraItem = {
@@ -231,6 +311,11 @@ export const PackagingExtraItem = {
 export type PackagingExtraItem = (typeof PackagingExtraItem)[keyof typeof PackagingExtraItem];
 
 /**
+ * PackagingExtraItem values array for Zod enum schemas
+ */
+export const PackagingExtraItemValues = Object.values(PackagingExtraItem) as [string, ...string[]];
+
+/**
  * Folding method
  */
 export const FoldingMethod = {
@@ -240,6 +325,11 @@ export const FoldingMethod = {
 } as const;
 
 export type FoldingMethod = (typeof FoldingMethod)[keyof typeof FoldingMethod];
+
+/**
+ * FoldingMethod values array for Zod enum schemas
+ */
+export const FoldingMethodValues = Object.values(FoldingMethod) as [string, ...string[]];
 
 /**
  * Use case
@@ -256,6 +346,11 @@ export const UseCase = {
 export type UseCase = (typeof UseCase)[keyof typeof UseCase];
 
 /**
+ * UseCase values array for Zod enum schemas
+ */
+export const UseCaseValues = Object.values(UseCase) as [string, ...string[]];
+
+/**
  * Target market
  */
 export const TargetMarket = {
@@ -270,6 +365,11 @@ export const TargetMarket = {
 export type TargetMarket = (typeof TargetMarket)[keyof typeof TargetMarket];
 
 /**
+ * TargetMarket values array for Zod enum schemas
+ */
+export const TargetMarketValues = Object.values(TargetMarket) as [string, ...string[]];
+
+/**
  * Gender
  */
 export const Gender = {
@@ -280,6 +380,11 @@ export const Gender = {
 } as const;
 
 export type Gender = (typeof Gender)[keyof typeof Gender];
+
+/**
+ * Gender values array for Zod enum schemas
+ */
+export const GenderValues = Object.values(Gender) as [string, ...string[]];
 
 /**
  * Style preference
@@ -295,6 +400,11 @@ export const StylePreference = {
 export type StylePreference = (typeof StylePreference)[keyof typeof StylePreference];
 
 /**
+ * StylePreference values array for Zod enum schemas
+ */
+export const StylePreferenceValues = Object.values(StylePreference) as [string, ...string[]];
+
+/**
  * Brand positioning
  */
 export const BrandPositioning = {
@@ -307,6 +417,11 @@ export const BrandPositioning = {
 export type BrandPositioning = (typeof BrandPositioning)[keyof typeof BrandPositioning];
 
 /**
+ * BrandPositioning values array for Zod enum schemas
+ */
+export const BrandPositioningValues = Object.values(BrandPositioning) as [string, ...string[]];
+
+/**
  * Customization depth
  */
 export const CustomizationDepth = {
@@ -317,6 +432,11 @@ export const CustomizationDepth = {
 } as const;
 
 export type CustomizationDepth = (typeof CustomizationDepth)[keyof typeof CustomizationDepth];
+
+/**
+ * CustomizationDepth values array for Zod enum schemas
+ */
+export const CustomizationDepthValues = Object.values(CustomizationDepth) as [string, ...string[]];
 
 /**
  * File type for design assets
@@ -334,6 +454,11 @@ export const DesignFileType = {
 export type DesignFileType = (typeof DesignFileType)[keyof typeof DesignFileType];
 
 /**
+ * DesignFileType values array for Zod enum schemas
+ */
+export const DesignFileTypeValues = Object.values(DesignFileType) as [string, ...string[]];
+
+/**
  * Quantity unit
  */
 export const QuantityUnit = {
@@ -343,6 +468,11 @@ export const QuantityUnit = {
 } as const;
 
 export type QuantityUnit = (typeof QuantityUnit)[keyof typeof QuantityUnit];
+
+/**
+ * QuantityUnit values array for Zod enum schemas
+ */
+export const QuantityUnitValues = Object.values(QuantityUnit) as [string, ...string[]];
 
 /**
  * Quality expectation
@@ -355,6 +485,11 @@ export const QualityExpectation = {
 } as const;
 
 export type QualityExpectation = (typeof QualityExpectation)[keyof typeof QualityExpectation];
+
+/**
+ * QualityExpectation values array for Zod enum schemas
+ */
+export const QualityExpectationValues = Object.values(QualityExpectation) as [string, ...string[]];
 
 /**
  * Sample type
@@ -370,6 +505,11 @@ export const SampleType = {
 export type SampleType = (typeof SampleType)[keyof typeof SampleType];
 
 /**
+ * SampleType values array for Zod enum schemas
+ */
+export const SampleTypeValues = Object.values(SampleType) as [string, ...string[]];
+
+/**
  * Sample requirement
  */
 export const SampleRequirement = {
@@ -382,6 +522,11 @@ export const SampleRequirement = {
 export type SampleRequirement = (typeof SampleRequirement)[keyof typeof SampleRequirement];
 
 /**
+ * SampleRequirement values array for Zod enum schemas
+ */
+export const SampleRequirementValues = Object.values(SampleRequirement) as [string, ...string[]];
+
+/**
  * Payment model
  */
 export const PaymentModel = {
@@ -392,6 +537,11 @@ export const PaymentModel = {
 } as const;
 
 export type PaymentModel = (typeof PaymentModel)[keyof typeof PaymentModel];
+
+/**
+ * PaymentModel values array for Zod enum schemas
+ */
+export const PaymentModelValues = Object.values(PaymentModel) as [string, ...string[]];
 
 /**
  * Payment method
@@ -407,6 +557,11 @@ export const PaymentMethod = {
 export type PaymentMethod = (typeof PaymentMethod)[keyof typeof PaymentMethod];
 
 /**
+ * PaymentMethod values array for Zod enum schemas
+ */
+export const PaymentMethodValues = Object.values(PaymentMethod) as [string, ...string[]];
+
+/**
  * MOQ tolerance
  */
 export const MOQTolerance = {
@@ -416,6 +571,11 @@ export const MOQTolerance = {
 } as const;
 
 export type MOQTolerance = (typeof MOQTolerance)[keyof typeof MOQTolerance];
+
+/**
+ * MOQTolerance values array for Zod enum schemas
+ */
+export const MOQToleranceValues = Object.values(MOQTolerance) as [string, ...string[]];
 
 /**
  * Timeline strictness
@@ -429,6 +589,11 @@ export const TimelineStrictness = {
 export type TimelineStrictness = (typeof TimelineStrictness)[keyof typeof TimelineStrictness];
 
 /**
+ * TimelineStrictness values array for Zod enum schemas
+ */
+export const TimelineStrictnessValues = Object.values(TimelineStrictness) as [string, ...string[]];
+
+/**
  * Spec status
  */
 export const SpecStatus = {
@@ -439,3 +604,8 @@ export const SpecStatus = {
 } as const;
 
 export type SpecStatus = (typeof SpecStatus)[keyof typeof SpecStatus];
+
+/**
+ * SpecStatus values array for Zod enum schemas
+ */
+export const SpecStatusValues = Object.values(SpecStatus) as [string, ...string[]];
