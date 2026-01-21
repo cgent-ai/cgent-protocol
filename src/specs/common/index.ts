@@ -8,3 +8,4 @@ export * from "./enums";
 export * from "./trade";
 export * from "./attachments";
 export * from "./spec-category";
+export * from "./constraints";

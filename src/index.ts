@@ -27,3 +27,4 @@ export * as CommonEnums from './specs/common/enums';
 export * as CommonTrade from './specs/common/trade';
 export * as CommonPrimitives from './specs/common/primitives';
 export * as CommonAttachments from './specs/common/attachments';
+export * as CommonConstraints from './specs/common/constraints';
