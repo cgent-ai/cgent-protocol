@@ -9,3 +9,5 @@ export * from "./trade";
 export * from "./attachments";
 export * from "./spec-category";
 export * from "./constraints";
+export * from "./capabilities";
+export * from "./policies";

@@ -4,6 +4,28 @@
  */
 
 import type { Incoterm, ShippingMode } from "./trade";
+import type { Country } from "./primitives";
+
+/**
+ * T-shirt domain-specific constraints.
+ */
+export interface TshirtConstraints {
+  /**
+   * Per-method MOQ thresholds (e.g., screen print higher MOQ).
+   */
+  moqByDecorationMethod?: Record<string, number>;
+  /**
+   * Maximum supported color count by method (optional).
+   */
+  maxColorsByMethod?: Record<string, number>;
+}
+
+/**
+ * Domain-specific constraint container.
+ */
+export interface SellerDomainConstraints {
+  tshirt?: TshirtConstraints;
+}
 
 /**
  * 卖家约束
@@ -18,4 +40,8 @@ export interface SellerConstraints {
   allowedIncoterms?: Incoterm[];
   /** 允许的运输方式 */
   allowedShippingModes?: ShippingMode[];
+  /** 允许的目标市场/国家 (合规/出口限制) */
+  allowedDestinationCountries?: Country[];
+  /** 域特定约束 */
+  domains?: SellerDomainConstraints;
 }
