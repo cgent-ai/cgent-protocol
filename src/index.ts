@@ -10,6 +10,7 @@
 // ============================================================================
 export * from './types';
 export * from './specs';
+export * from './p2p';
 
 // ============================================================================
 // Namespace exports for better organization
@@ -31,3 +32,6 @@ export * as CommonAttachments from './specs/common/attachments';
 export * as CommonConstraints from './specs/common/constraints';
 export * as CommonCapabilities from './specs/common/capabilities';
 export * as CommonPolicies from './specs/common/policies';
+
+// P2P namespaces
+export * as P2PMessageSync from './p2p/message-sync';

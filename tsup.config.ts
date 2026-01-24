@@ -14,6 +14,8 @@ export default defineConfig({
     'src/specs/verticals/apparel/tshirt/artifacts.ts',
     'src/specs/verticals/apparel/tshirt/enums.ts',
     'src/specs/verticals/apparel/tshirt/zod-schemas.ts',
+    'src/p2p/index.ts',
+    'src/p2p/message-sync.ts',
   ],
   format: ['cjs', 'esm'],
   dts: true,
