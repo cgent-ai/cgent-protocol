@@ -24,8 +24,15 @@ export type MessageSyncDirection = "buyer_to_seller" | "seller_to_buyer";
  * - text: Human-sent text messages (synchronized via P2P)
  * - negotiation: Agent negotiation messages (local storage only, not synced)
  * - system: System messages
+ * - spec_update: Buyer updated spec (buyer → seller)
+ * - quote_update: Seller updated quote (seller → buyer)
  */
-export type MessageSyncType = "text" | "negotiation" | "system";
+export type MessageSyncType =
+  | "text"
+  | "negotiation"
+  | "system"
+  | "spec_update"
+  | "quote_update";
 
 // ============================================================================
 // Payload Types
@@ -66,4 +73,48 @@ export interface ChatMessageSyncResponse {
   receiverMessageId?: string;
   /** Error message (if failed) */
   error?: string;
+}
+
+// ============================================================================
+// Spec/Quote Update Metadata Types
+// ============================================================================
+
+/**
+ * Metadata for spec update messages (buyer → seller)
+ * Included in ChatMessageSyncPayload.metadata when type is "spec_update"
+ */
+export interface SpecUpdateMetadata {
+  /** Unique ID for this spec update */
+  specUpdateId: string;
+  /** Spec category (e.g., "tshirt") */
+  category: string;
+  /** Version number of the spec (optional) */
+  version?: number;
+  /** Fields that were updated with their old and new values */
+  updatedFields: Record<string, { from: unknown; to: unknown }>;
+  /** ISO 8601 timestamp when the update occurred */
+  updatedAt: string;
+  /** Whether this update triggered a new negotiation round */
+  triggeredNegotiation: boolean;
+  /** Human-readable summary of changes */
+  changeSummary?: string;
+}
+
+/**
+ * Metadata for quote update messages (seller → buyer)
+ * Included in ChatMessageSyncPayload.metadata when type is "quote_update"
+ */
+export interface QuoteUpdateMetadata {
+  /** Unique ID for this quote update */
+  quoteUpdateId: string;
+  /** Negotiation session ID (optional) */
+  sessionId?: string;
+  /** Version number of the quote (optional) */
+  version?: number;
+  /** Fields that were updated with their old and new values */
+  updatedFields: Record<string, { from: unknown; to: unknown }>;
+  /** ISO 8601 timestamp when the update occurred */
+  updatedAt: string;
+  /** Human-readable summary of changes */
+  changeSummary?: string;
 }

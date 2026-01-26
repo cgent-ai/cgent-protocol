@@ -11,6 +11,7 @@
 export * from './types';
 export * from './specs';
 export * from './p2p';
+export * from './verticals';
 
 // ============================================================================
 // Namespace exports for better organization
@@ -35,3 +36,7 @@ export * as CommonPolicies from './specs/common/policies';
 
 // P2P namespaces
 export * as P2PMessageSync from './p2p/message-sync';
+
+// Verticals namespaces
+export * as VerticalRegistry from './verticals/registry';
+export * as TshirtVerticalConfig from './verticals/tshirt/config';
