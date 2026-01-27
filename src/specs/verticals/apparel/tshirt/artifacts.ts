@@ -294,6 +294,22 @@ export type AlternativeType =
  * An alternative pricing/timeline option presented alongside the main estimate.
  * Helps buyers understand trade-offs and facilitates negotiation.
  */
+/**
+ * Final quote information.
+ * Marks an estimate as a final, confirmed quote from the seller.
+ * Note: No `finalizedBy` field needed since the final quote is always confirmed by the seller.
+ */
+export interface FinalQuoteInfo {
+  /** Whether this is a final quote */
+  isFinal: boolean;
+  /** When the quote was finalized */
+  finalizedAt: ISODateTimeString;
+  /** Optional note about the final quote (e.g., "Valid for 7 days") */
+  note?: string;
+  /** Specific final price per unit (when confirmed, replaces price range) */
+  finalPrice?: number;
+}
+
 export interface EstimateAlternative {
   /** Unique identifier for this alternative */
   alternativeId: string;
@@ -378,6 +394,12 @@ export interface SellerEstimate {
    * Helps prevent stale pricing from being used in negotiations.
    */
   expiresAt?: ISODateTimeString;
+  /**
+   * Final quote marker. When set with isFinal=true, indicates this is a confirmed
+   * final quote from the seller (not just an estimate).
+   * Buyer can see this and decide to place an order, continue negotiating, or hold.
+   */
+  finalQuote?: FinalQuoteInfo;
 }
 
 export interface SellerDraftOffer {
