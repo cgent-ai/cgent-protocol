@@ -118,3 +118,97 @@ export interface QuoteUpdateMetadata {
   /** Human-readable summary of changes */
   changeSummary?: string;
 }
+
+// ============================================================================
+// Order Placed Types (for order_placed P2P action)
+// ============================================================================
+
+/**
+ * P2P action type for order placement notification
+ */
+export type OrderPlacedAction = "order_placed";
+
+/**
+ * Spec data included in order_placed payload
+ */
+export interface OrderPlacedSpec {
+  /** Spec category (e.g., "tshirt") */
+  category: string;
+  /** Complete spec data */
+  data: unknown;
+  /** Buyer-side AgentMessage ID (optional) */
+  messageId?: string;
+}
+
+/**
+ * Quote data included in order_placed payload
+ */
+export interface OrderPlacedQuote {
+  /** Quote category */
+  category: string;
+  /** Complete quote/artifacts data */
+  data: unknown;
+  /** Buyer-side AgentMessage ID (optional) */
+  messageId?: string;
+}
+
+/**
+ * Payment information for verification
+ */
+export interface OrderPlacedPayment {
+  /** Stripe PaymentIntent ID */
+  stripePaymentIntentId: string;
+  /** Merchant ID for payment verification */
+  merchantId: string;
+}
+
+/**
+ * Payload for order_placed action
+ * Sent from buyer to seller when an order is placed and payment succeeds
+ */
+export interface OrderPlacedPayload {
+  /** Order ID from cgent-user */
+  orderId: string;
+  /** Buyer's user ID */
+  buyerUserId: string;
+  /** Order amount in cents (USD) */
+  amountCents: number;
+  /** Quantity ordered */
+  quantity: number;
+  /** Short summary of the spec for display */
+  specSummary: string;
+  /** Timestamp when order was placed (Unix ms) */
+  timestamp: number;
+  /** Complete spec data */
+  spec: OrderPlacedSpec;
+  /** Complete quote data */
+  quote: OrderPlacedQuote;
+  /** Payment verification information */
+  payment: OrderPlacedPayment;
+}
+
+/**
+ * Payment verification result
+ */
+export interface PaymentVerificationResult {
+  /** Whether payment was verified */
+  verified: boolean;
+  /** Payment status from registry */
+  status: string;
+}
+
+/**
+ * Response for order_placed action
+ */
+export interface OrderPlacedResponse {
+  /** Whether the order notification was received */
+  success: boolean;
+  /** Timestamp when the notification was received (ISO 8601) */
+  receivedAt: string;
+  /** Seller-side order ID (if created) */
+  sellerOrderId?: string;
+  /** Payment verification result */
+  paymentVerification?: PaymentVerificationResult;
+  /** Error message (if failed) */
+  error?: string;
+}

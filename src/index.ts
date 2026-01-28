@@ -8,7 +8,6 @@
 // ============================================================================
 // Re-export all types from submodules
 // ============================================================================
-export * from './types';
 export * from './specs';
 export * from './p2p';
 export * from './verticals';
@@ -16,8 +15,6 @@ export * from './verticals';
 // ============================================================================
 // Namespace exports for better organization
 // ============================================================================
-export * as OrderTypes from './types/order';
-export * as ProductTypes from './types/product';
 
 // Tshirt vertical namespaces
 export * as TshirtSpecTypes from './specs/verticals/apparel/tshirt/spec';

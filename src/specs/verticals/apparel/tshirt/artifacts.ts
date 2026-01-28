@@ -308,6 +308,8 @@ export interface FinalQuoteInfo {
   note?: string;
   /** Specific final price per unit (when confirmed, replaces price range) */
   finalPrice?: number;
+  /** Final confirmed quantity */
+  finalQuantity?: number;
 }
 
 export interface EstimateAlternative {
